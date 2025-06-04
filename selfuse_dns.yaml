@@ -718,6 +718,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  MyChinaDomain:
+    url: https://raw.githubusercontent.com/nico0766/Clahde_lee/refs/heads/main/MyChinaDomain.list
+    path: ./ruleset/MyChinaDomain.list
+    behavior: domain
+    interval: 86400
+    format: text
+    type: http
   ChinaCompanyIp:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
@@ -760,6 +767,7 @@ rules:
   - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
   - "RULE-SET,ChinaDomain,全球直连"
+  - "RULE-SET,MyChinaDomain,全球直连"
   - "RULE-SET,ChinaCompanyIp,全球直连"
   - "RULE-SET,Download,全球直连"
   - "GEOIP,CN,全球直连"
