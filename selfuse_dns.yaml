@@ -924,11 +924,27 @@ rule-providers:
     interval: 86400
     url: https://ruleset.skk.moe/Clash/domainset/reject.txt
     path: ./sukkaw_ruleset/reject_domainset.txt
-
+  Custom_OpenClash_Rules:
+    url: https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Proxy.list
+    path: ./ruleset/Custom_Proxy.list
+    behavior: ipcidr
+    interval: 86400
+    format: text
+    type: http
+  Custom_Direc_Rules:
+    url: https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Direct.list
+    path: ./ruleset/Custom_Direc.list
+    behavior: ipcidr
+    interval: 86400
+    format: text
+    type: http
+    
 rules:
   - "RULE-SET,LocalAreaNetwork,全球直连"
   - "RULE-SET,MyChinaDomain,全球直连"
   - "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT"
+  - "RULE-SET,Custom_Direc_Rules,全球直连"
+  - "RULE-SET,Custom_OpenClash_Rules,节点选择"
   - "RULE-SET,UnBan,全球直连"
   - "RULE-SET,BanAD,广告拦截"
   - "RULE-SET,BanProgramAD,应用净化"
