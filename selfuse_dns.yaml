@@ -192,6 +192,7 @@ proxy-groups:
       - 手动切换
       - 落地节点
       - DIRECT
+      - Linuxdo节点
     url: 'http://www.google.com/generate_204'
     interval: 300
     timeout: 5000
@@ -453,6 +454,16 @@ proxy-groups:
       - 故障转移
       - 手动切换
       - DIRECT
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: Linuxdo节点
+    icon: https://github.com/nico0766/Clahde_lee/blob/main/LDlogo.png?raw=true
+    include-all: true
+    filter: (?i)LinuxDo|Linuxdo
+    exclude-filter: (?i)家宽|家庭|商宽|落地
+    type: url-test
+    interval: 300
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 香港节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
