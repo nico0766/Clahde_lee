@@ -188,17 +188,22 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - 故障转移
       - 手动切换
-      - 落地节点
-      - DIRECT
       - Linuxdo节点
       - 狮城节点
       - 香港节点
       - 台湾节点
       - 日本节点
-      - 美国节点
       - 韩国节点
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+      - DIRECT
     url: 'http://www.google.com/generate_204'
     interval: 300
     timeout: 5000
@@ -224,8 +229,8 @@ proxy-groups:
     type: fallback
     lazy: false
     proxies:
-      - 故障转移首选
-      - 故障转移次选
+      - 故障转移首选-自动
+      - 故障转移次选-手动
       - 落地节点
       - 省流节点
       - 高级节点
@@ -240,12 +245,14 @@ proxy-groups:
     filter: (落地|家宽|自建)
     type: select
     url: 'http://cp.cloudflare.com/generate_204'
-  - name: 故障转移首选
+  - name: 故障转移首选-自动
     icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
     include-all: true
-    type: select
+    type: url-test
+    interval: 300
+    tolerance: 20
     url: 'http://cp.cloudflare.com/generate_204'
-  - name: 故障转移次选
+  - name: 故障转移次选-手动
     icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
     include-all: true
     type: select
@@ -256,15 +263,19 @@ proxy-groups:
     proxies:
       - 节点选择
       - 自动选择
-      - 省流节点
-      - 故障转移
       - 狮城节点
       - 香港节点
       - 台湾节点
       - 日本节点
-      - 美国节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
       - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: OpenAi
@@ -273,16 +284,19 @@ proxy-groups:
     proxies:
       - 节点选择
       - 自动选择
-      - 省流节点
-      - 故障转移
       - 狮城节点
       - 香港节点
       - 台湾节点
       - 日本节点
-      - 美国节点
       - 韩国节点
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
       - 落地节点
-      - 手动切换
+      - 故障转移
       - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 油管视频
@@ -291,16 +305,19 @@ proxy-groups:
     proxies:
       - 节点选择
       - 自动选择
-      - 省流节点
-      - 故障转移
       - 狮城节点
       - 香港节点
       - 台湾节点
       - 日本节点
-      - 美国节点
       - 韩国节点
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
       - 落地节点
-      - 手动切换
+      - 故障转移
       - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 巴哈姆特
@@ -328,16 +345,19 @@ proxy-groups:
     proxies:
       - 节点选择
       - 自动选择
-      - 省流节点
-      - 故障转移
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
-      - 美国节点
       - 韩国节点
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
       - 落地节点
-      - 手动切换
+      - 故障转移
       - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 国内媒体
@@ -351,58 +371,85 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     type: select
     proxies:
-      - DIRECT
       - 节点选择
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+      - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 微软Bing
     icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png
     type: select
     proxies:
-      - DIRECT
       - 节点选择
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+      - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 微软云盘
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png
     type: select
     proxies:
-      - DIRECT
       - 节点选择
-      - 省流节点
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+      - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 微软服务
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
     type: select
     proxies:
       - 节点选择
-      - DIRECT
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+      - DIRECT
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 苹果服务
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
@@ -410,13 +457,20 @@ proxy-groups:
     proxies:
       - DIRECT
       - 节点选择
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 游戏平台
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
@@ -424,13 +478,41 @@ proxy-groups:
     proxies:
       - DIRECT
       - 节点选择
-      - 美国节点
+      - 自动选择
+      - 狮城节点
       - 香港节点
       - 台湾节点
-      - 狮城节点
       - 日本节点
       - 韩国节点
-      - 手动切换
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 静态资源
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png
+    type: select
+    proxies:
+      - DIRECT
+      - 节点选择
+      - 自动选择
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 韩国节点
+      - 美国节点
+      - 英国节点
+      - 加拿大节点
+      - 澳洲节点
+      - 欧盟节点
+      - 非洲节点
+      - 落地节点
+      - 故障转移
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 全球直连
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
@@ -483,47 +565,92 @@ proxy-groups:
   - name: 日本节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     include-all: true
-    filter: ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
+    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
     type: load-balance
     interval: 300
-    strategy: consistent-hashing
-    hidden: true
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 美国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
-    filter: ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥
     type: load-balance
     interval: 300
-    strategy: consistent-hashing
-    hidden: false
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 台湾节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
     include-all: true
-    filter: ^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
+    filter: (?i)台|新北|彰化|TW|Taiwan|🇹🇼|台湾
     type: load-balance
     interval: 300
-    strategy: consistent-hashing
-    hidden: true
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 狮城节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     include-all: true
-    filter: ^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
+    filter: (?i)新加坡|坡|狮城|SG|Singapore|🇸🇬|狮
     type: load-balance
     interval: 300
-    strategy: consistent-hashing
-    hidden: true
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 韩国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     include-all: true
-    filter: ^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
+    filter:  (?i)KR|Korea|KOR|首尔|韩|韓|🇰🇷|韩国|韓|首尔
     type: load-balance
     interval: 300
-    strategy: consistent-hashing
-    hidden: true
+    tolerance: 20
+    lazy: false
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 加拿大节点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Canada.png
+    include-all: true
+    filter:  (?i)加拿大|多伦多|Toronto|温哥华|Vancouver|蒙特利尔|Montreal|卡尔加里|Calgary|渥太华|Ottawa
+    type: load-balance
+    interval: 300
+    tolerance: 20
+    lazy: false
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 英国节点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
+    include-all: true
+    filter:  (?i)英国|UK|GB|伦敦|London|曼彻斯特|Manchester|伯明翰|Birmingham|利物浦|Liverpool|谢菲联|Sheffield
+    type: load-balance
+    interval: 300
+    tolerance: 20
+    lazy: false
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 澳洲节点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Australia.png
+    include-all: true
+    filter:  (?i)澳洲|悉尼|墨尔本|布里斯班|堪培拉|黄金海岸|珀斯|阿德莱德|澳大利亚|AU|Australia
+    type: load-balance
+    interval: 300
+    tolerance: 20
+    lazy: false
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 欧盟节点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    include-all: true
+    filter:  (奥地利|Austria|AUT|AT|维也纳|Vienna|比利时|Belgium|BEL|BE|布鲁塞尔|Brussels|根特|Ghent|安特卫普|Antwerp|保加利亚|Bulgaria|BGR|BG|索菲亚|Sofia|克罗地亚|Croatia|HRV|HR|萨格勒布|Zagreb|塞浦路斯|Cyprus|CYP|CY|尼科西亚|Nicosia|捷克|Czechia|Czech|CZE|CZ|布拉格|Prague|丹麦|Denmark|DNK|DK|哥本哈根|Copenhagen|欧登塞|Odense|爱沙尼亚|Estonia|EST|EE|塔林|Tallinn|芬兰|Finland|FIN|FI|赫尔辛基|Helsinki|法国|France|FRA|FR|巴黎|Paris|马赛|Marseille|里昂|Lyon|德国|Germany|DEU|DE|法兰克福|Frankfurt|柏林|Berlin|慕尼黑|Munich|杜塞尔多夫|Dusseldorf|汉堡|Hamburg|希腊|Greece|GRC|EL|GR|雅典|Athens|匈牙利|Hungary|HUN|HU|布达佩斯|Budapest|爱尔兰|Ireland|IRL|IE|都柏林|Dublin|意大利|Italy|ITA|IT|米兰|Milan|罗马|Rome|拉脱维亚|Latvia|LVA|LV|里加|Riga|立陶宛|Lithuania|LTU|LT|维尔纽斯|Vilnius|卢森堡|Luxembourg|LUX|LU|卢森堡市|卢森堡|马耳他|Malta|MLT|MT|瓦莱塔|Valletta|荷兰|Netherlands|NLD|NL|阿姆斯特丹|Amsterdam|鹿特丹|Rotterdam|波兰|Poland|POL|PL|华沙|Warsaw|克拉科夫|Krakow|葡萄牙|Portugal|PRT|PT|里斯本|Lisbon|波尔图|Porto|罗马尼亚|Romania|ROU|RO|布加勒斯特|Bucharest|斯洛伐克|Slovakia|SVK|SK|布拉迪斯拉发|Bratislava|斯洛文尼亚|Slovenia|SVN|SI|卢布尔雅那|Ljubljana|西班牙|Spain|ESP|ES|马德里|Madrid|巴塞罗那|Barcelona|瑞典|Sweden|SWE|SE|斯德哥尔摩|Stockholm|马尔默|Malmö|Malmo)
+    type: load-balance
+    interval: 300
+    tolerance: 20
+    lazy: false
+    url: 'http://cp.cloudflare.com/generate_204'
+  - name: 非洲节点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
+    include-all: true
+    filter: (?i)非洲|Africa|南非|South Africa|埃及|Egypt|开罗|Cairo|尼日利亚|Nigeria|拉各斯|Lagos
+    type: load-balance
+    interval: 300
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 省流节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png
@@ -748,6 +875,55 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  reject_non_ip_no_drop:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
+    path: ./sukkaw_ruleset/reject_non_ip_no_drop.txt
+  reject_non_ip_drop:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
+    path: ./sukkaw_ruleset/reject_non_ip_drop.txt
+  reject_non_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/non_ip/reject.txt
+    path: ./sukkaw_ruleset/reject_non_ip.txt
+  AdditionalFilter:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./ruleset/AdditionalFilter.list
+    url: https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalFilter.list
+  cdn_domainset:
+    type: http
+    behavior: domain
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
+    path: ./sukkaw_ruleset/cdn_domainset.txt
+  cdn_non_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+    path: ./sukkaw_ruleset/cdn_non_ip.txt
+  reject_domainset:
+    type: http
+    behavior: domain
+    format: text
+    interval: 86400
+    url: https://ruleset.skk.moe/Clash/domainset/reject.txt
+    path: ./sukkaw_ruleset/reject_domainset.txt
 
 rules:
   - "RULE-SET,LocalAreaNetwork,全球直连"
@@ -781,3 +957,10 @@ rules:
   - "RULE-SET,Download,全球直连"
   - "GEOIP,CN,全球直连"
   - "MATCH,漏网之鱼"
+  - "RULE-SET,reject_non_ip,广告拦截"
+  - "RULE-SET,reject_non_ip_drop,REJECT-DROP"
+  - "RULE-SET,reject_non_ip_no_drop,广告拦截"
+  - "RULE-SET,AdditionalFilter,广告拦截"
+  - "RULE-SET,cdn_domainset,静态资源"
+  - "RULE-SET,cdn_non_ip,静态资源"
+  - "RULE-SET,reject_domainset,广告拦截"
