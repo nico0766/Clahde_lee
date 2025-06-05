@@ -458,6 +458,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    exclude-filter: (?i)家宽|家庭|商宽|落地
     type: url-test
     interval: 300
     tolerance: 20
