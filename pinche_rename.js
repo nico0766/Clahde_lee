@@ -1,5 +1,6 @@
 /**
- * 更新日期：2025年6月5日17:17:28
+ * 更新日期：2024-04-05 15:30:15 (模拟原始日期，实际已修改)
+ * 用法：Sub-Store 脚本操作添加
  * rename.js 以下是此脚本支持的参数，必须以 # 为开头多个参数使用"&"连接，参考上述地址为例使用参数。 禁用缓存url#noCache
  *
  *** 主要参数
@@ -55,7 +56,7 @@ const nx = inArg.nx || false,
 
 const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf),
   XHFGF = inArg.sn == undefined ? " " : decodeURI(inArg.sn),
-  FNAME = "TESTPREFIX-",
+  FNAME = inArg.name == undefined ? "" : decodeURI(inArg.name), // Reads prefix from #name= parameter
   BLKEY = inArg.blkey == undefined ? "" : decodeURI(inArg.blkey),
   blockquic = inArg.blockquic == undefined ? "" : decodeURI(inArg.blockquic),
   nameMap = {
@@ -141,8 +142,9 @@ function ObjKA(i) {
 function operator(pro) {
   const Allmap = {};
   const outList = getList(outputName);
-  let inputList,
-    retainKey = ""; // retainKey should be initialized as a string for consistency
+  let inputList;
+  let retainKey = ""; 
+
   if (inname !== "") {
     inputList = [getList(inname)];
   } else {
@@ -170,39 +172,40 @@ function operator(pro) {
   const BLKEYS = BLKEY ? BLKEY.split("+") : "";
 
   pro.forEach((e) => {
-    let bktf = false, ens = e.name;
-    retainKey = ""; // Reset for each proxy, ensure it's a string initially
+    let bktf = false;
+    const ens = e.name; // Original name for checking BLKEYS consistently
+    retainKey = ""; // Reset for each proxy
 
-    // 预处理 防止预判或遗漏
-    Object.keys(rurekey).forEach((ikey_rure) => { // Renamed ikey to avoid conflict
+    Object.keys(rurekey).forEach((ikey_rure) => {
       if (rurekey[ikey_rure].test(e.name)) {
         e.name = e.name.replace(rurekey[ikey_rure], ikey_rure);
         if (BLKEY) {
           bktf = true;
-          let BLKEY_REPLACE_VAL = ""; // Renamed
-          let re_val = false; // Renamed
+          let BLKEY_REPLACE_VAL = "";
+          let re_val = false;
           BLKEYS.forEach((i) => {
-            if (i.includes(">") && ens.includes(i.split(">")[0])) {
-              if (rurekey[ikey_rure].test(i.split(">")[0])) { // Check if the rurekey target matches part of BLKEY
-                  e.name += " " + i.split(">")[0]; // Append original keyword part for context if needed
-              }
-              if (i.split(">")[1]) {
-                BLKEY_REPLACE_VAL = i.split(">")[1];
+            const parts = i.split(">");
+            const keywordToMatch = parts[0];
+            const replacement = parts[1];
+
+            if (ens.includes(keywordToMatch)) {
+              if (replacement !== undefined) { // If there is something after >
+                BLKEY_REPLACE_VAL = replacement;
                 re_val = true;
-              }
-            } else {
-              if (ens.includes(i)) {
-                 e.name += " " + i; // Append original keyword
+                if (rurekey[ikey_rure].test(keywordToMatch)) {
+                   // e.name += " " + keywordToMatch; // Optional: append original matched part if needed
+                }
+              } else if (parts.length === 1) { // No ">" or nothing after ">"
+                 // e.name += " " + keywordToMatch; // Optional: append original matched part
               }
             }
           });
-          // Consolidate retainKey logic
           if (re_val) {
             retainKey = BLKEY_REPLACE_VAL;
           } else {
-            const tempRetainKeys = BLKEYS.filter((items) => ens.includes(items)); // Use original name 'ens' for checking
+            const tempRetainKeys = BLKEYS.filter((items) => !items.includes(">") && ens.includes(items));
             if (tempRetainKeys.length > 0) {
-              retainKey = tempRetainKeys.join(" "); // Join if multiple, ensures string
+              retainKey = tempRetainKeys.join(" "); 
             }
           }
         }
@@ -217,14 +220,16 @@ function operator(pro) {
       delete e["block-quic"];
     }
 
-    // 自定义 BLKEY (if not handled above by rurekey interaction)
     if (!bktf && BLKEY) {
       let BLKEY_REPLACE_VAL = "";
       let re_val = false;
       BLKEYS.forEach((i) => {
-        if (i.includes(">") && ens.includes(i.split(">")[0])) { // Use original name 'ens'
-          if (i.split(">")[1]) {
-            BLKEY_REPLACE_VAL = i.split(">")[1];
+        const parts = i.split(">");
+        const keywordToMatch = parts[0];
+        const replacement = parts[1];
+        if (ens.includes(keywordToMatch)) {
+          if (replacement !== undefined) {
+            BLKEY_REPLACE_VAL = replacement;
             re_val = true;
           }
         }
@@ -232,28 +237,26 @@ function operator(pro) {
       if (re_val) {
         retainKey = BLKEY_REPLACE_VAL;
       } else {
-        const tempRetainKeys = BLKEYS.filter((items) => ens.includes(items)); // Use original name 'ens'
-         if (tempRetainKeys.length > 0) {
-            retainKey = tempRetainKeys.join(" "); // Join if multiple
+        const tempRetainKeys = BLKEYS.filter((items) => !items.includes(">") && ens.includes(items));
+        if (tempRetainKeys.length > 0) {
+          retainKey = tempRetainKeys.join(" ");
         }
       }
     }
 
-    let ikey_bl = ""; // Renamed from ikey to avoid conflict
-    let ikeys_blgd = ""; // Renamed from ikeys
+    let ikey_bl = ""; 
+    let ikeys_blgd = "";
 
-    // 保留固定格式 倍率
     if (blgd) {
       regexArray.forEach((regex, index) => {
-        if (regex.test(e.name)) { // Test current e.name
+        if (regex.test(e.name)) { 
           ikeys_blgd = valueArray[index];
         }
       });
     }
 
-    // 正则 匹配倍率
     if (bl) {
-      const match = e.name.match( // Test current e.name
+      const match = e.name.match( 
         /((倍率|X|x|×)\D?((\d{1,3}\.)?\d+)\D?)|((\d{1,3}\.)?\d+)(倍|X|x|×)/
       );
       if (match) {
@@ -265,20 +268,21 @@ function operator(pro) {
       }
     }
 
-    !GetK && ObjKA(Allmap)
-    // 匹配 Allkey 地区
-    const findKey = AMK.find(([key_map]) => // Renamed key to key_map
-      e.name.includes(key_map) // Test current e.name
-    )
+    !GetK && ObjKA(Allmap);
     
-    let firstName = "",
-      nNames = "";
+    const findKey = AMK.find(([key_map]) => 
+      e.name.includes(key_map) 
+    );
+    
+    let firstName = "";
+    let nNames = "";
 
-    if (nf) {
-      firstName = FNAME;
+    if (nf) { // nf is read from #nf= parameter
+      firstName = FNAME; // FNAME is read from #name= parameter
     } else {
       nNames = FNAME;
     }
+
     if (findKey?.[1]) {
       const findKeyValue = findKey[1];
       let keyover = [];
@@ -290,10 +294,10 @@ function operator(pro) {
           usflag = usflag === "🇹🇼" ? "🇨🇳" : usflag; 
         }
       }
-      // Ensure all parts are strings before concat, especially retainKey
+      
       keyover = keyover
         .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey_bl, ikeys_blgd)
-        .filter((k_item) => k_item !== "" && k_item !== undefined); // filter out empty and undefined
+        .filter((k_item) => k_item !== "" && k_item !== undefined && k_item !== null); 
       e.name = keyover.join(FGF);
     } else {
       if (nm) {
@@ -326,7 +330,7 @@ function fampx(pro) { const wis = []; const wnout = []; for (const proxy of pro)
 
 function escapeRegExp(string) {
   if (typeof string !== 'string') {
-    return ''; // Return empty string if not a string to prevent errors
+    return ''; 
   }
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
