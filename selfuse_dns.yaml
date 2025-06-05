@@ -457,11 +457,11 @@ proxy-groups:
   - name: 香港节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
-    filter: ^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)(\d+)?\b)))(?!.*((?i)(\s|-)0\.[0-9](×|x|X)|(\s|-)(([1-9](\.\d+)?)(×|x|X))|低倍率|省流|大流量|落地|家宽|自建|回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$
-    type: load-balance
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    type: url-test
     interval: 300
-    strategy: consistent-hashing
-    hidden: true
+    tolerance: 20
+    lazy: false
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 日本节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
