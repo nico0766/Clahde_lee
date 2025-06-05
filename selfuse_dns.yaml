@@ -212,18 +212,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    proxies:
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-    url: 'http://www.google.com/generate_204'
-    interval: 300
-    tolerance: 50
-    timeout: 5000
-    max-failed-times: 2
   - name: 故障转移
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
     type: fallback
