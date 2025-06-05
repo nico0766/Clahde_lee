@@ -193,6 +193,12 @@ proxy-groups:
       - 落地节点
       - DIRECT
       - Linuxdo节点
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 美国节点
+      - 韩国节点
     url: 'http://www.google.com/generate_204'
     interval: 300
     timeout: 5000
