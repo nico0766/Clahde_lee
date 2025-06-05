@@ -1,4 +1,6 @@
 /**
+ * 更新日期：2024-04-05 15:30:15 (模拟原始日期，实际已修改)
+ * 用法：Sub-Store 脚本操作添加
  * rename.js 以下是此脚本支持的参数，必须以 # 为开头多个参数使用"&"连接，参考上述地址为例使用参数。 禁用缓存url#noCache
  *
  *** 主要参数
@@ -41,7 +43,7 @@
 const inArg = $arguments; // console.log(inArg)
 const nx = inArg.nx || false,
   bl = inArg.bl || false,
-  nf = inArg.nf || false, // 读取 #nf= 参数
+  nf = inArg.nf || false, 
   key = inArg.key || false,
   blgd = inArg.blgd || false,
   blpx = inArg.blpx || false,
@@ -52,9 +54,9 @@ const nx = inArg.nx || false,
   addflag = inArg.flag || false,
   nm = inArg.nm || false;
 
-const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf), // 读取 #fgf= 参数
-  XHFGF = inArg.sn == undefined ? " " : decodeURI(inArg.sn),   // 读取 #sn= 参数
-  FNAME = inArg.name == undefined ? "" : decodeURI(inArg.name), // 读取 #name= 参数 (例如 "拼车-")
+const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf),
+  XHFGF = inArg.sn == undefined ? " " : decodeURI(inArg.sn),   
+  FNAME = inArg.name == undefined ? "" : decodeURI(inArg.name), 
   BLKEY = inArg.blkey == undefined ? "" : decodeURI(inArg.blkey),
   blockquic = inArg.blockquic == undefined ? "" : decodeURI(inArg.blockquic),
   nameMap = {
@@ -67,7 +69,7 @@ const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf), // 读取 #fgf=
     flag: "gq",
   },
   inname = nameMap[inArg.in] || "",
-  outputName = nameMap[inArg.out] || ""; // 读取 #out= 参数
+  outputName = nameMap[inArg.out] || "";
 // prettier-ignore
 const FG = ['🇭🇰','🇲🇴','🇹🇼','🇯🇵','🇰🇷','🇸🇬','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇦🇺','🇦🇪','🇦🇫','🇦🇱','🇩🇿','🇦🇴','🇦🇷','🇦🇲','🇦🇹','🇦🇿','🇧🇭','🇧🇩','🇧🇾','🇧🇪','🇧🇿','🇧🇯','🇧🇹','🇧🇴','🇧🇦','🇧🇼','🇧🇷','🇻🇬','🇧🇳','🇧🇬','🇧🇫','🇧🇮','🇰🇭','🇨🇲','🇨🇦','🇨🇻','🇰🇾','🇨🇫','🇹🇩','🇨🇱','🇨🇴','🇰🇲','🇨🇬','🇨🇩','🇨🇷','🇭🇷','🇨🇾','🇨🇿','🇩🇰','🇩🇯','🇩🇴','🇪🇨','🇪🇬','🇸🇻','🇬🇶','🇪🇷','🇪🇪','🇪🇹','🇫🇯','🇫🇮','🇬🇦','🇬🇲','🇬🇪','🇬🇭','🇬🇷','🇬🇱','🇬🇹','🇬🇳','🇬🇾','🇭🇹','🇭🇳','🇭🇺','🇮🇸','🇮🇳','🇮🇩','🇮🇷','🇮🇶','🇮🇪','🇮🇲','🇮🇱','🇮🇹','🇨🇮','🇯🇲','🇯🇴','🇰🇿','🇰🇪','🇰🇼','🇰🇬','🇱🇦','🇱🇻','🇱🇧','🇱🇸','🇱🇷','🇱🇾','🇱🇹','🇱🇺','🇲🇰','🇲🇬','🇲🇼','🇲🇾','🇲🇻','🇲🇱','🇲🇹','🇲🇷','🇲🇺','🇲🇽','🇲🇩','🇲🇨','🇲🇳','🇲🇪','🇲🇦','🇲🇿','🇲🇲','🇳🇦','🇳🇵','🇳🇱','🇳🇿','🇳🇮','🇳🇪','🇳🇬','🇰🇵','🇳🇴','🇴🇲','🇵🇰','🇵🇦','🇵🇾','🇵🇪','🇵🇭','🇵🇹','🇵🇷','🇶🇦','🇷🇴','🇷🇺','🇷🇼','🇸🇲','🇸🇦','🇸🇳','🇷🇸','🇸🇱','🇸🇰','🇸🇮','🇸🇴','🇿🇦','🇪🇸','🇱🇰','🇸🇩','🇸🇷','🇸🇿','🇸🇪','🇨🇭','🇸🇾','🇹🇯','🇹🇿','🇹🇭','🇹🇬','🇹🇴','🇹🇹','🇹🇳','🇹🇷','🇹🇲','🇻🇮','🇺🇬','🇺🇦','🇺🇾','🇺🇿','🇻🇪','🇻🇳','🇾🇪','🇿🇲','🇿🇼','🇦🇩','🇷🇪','🇵🇱','🇬🇺','🇻🇦','🇱🇮','🇨🇼','🇸🇨','🇦🇶','🇬🇮','🇨🇺','🇫🇴','🇦🇽','🇧🇲','🇹🇱', '➡️'];
 // prettier-ignore
@@ -137,7 +139,7 @@ function ObjKA(i) {
   AMK = Object.entries(i)
 }
 
-function operator(pro) { // 'pro' is the array of proxies
+function operator(pro) { 
   const Allmap = {};
   const outList = getList(outputName);
   let inputList;
@@ -169,7 +171,7 @@ function operator(pro) { // 'pro' is the array of proxies
 
   const BLKEYS = BLKEY ? BLKEY.split("+") : "";
 
-  pro.forEach((e) => { // 'e' is a single proxy object from the 'pro' array
+  pro.forEach((e) => { 
     let bktf = false;
     const ens = e.name; 
     retainKey = ""; 
@@ -267,20 +269,20 @@ function operator(pro) { // 'pro' is the array of proxies
       e.name.includes(key_map) 
     );
     
-    let firstName = ""; // Will hold the prefix if nf=true
-    let nNames = "";    // Will hold the prefix if nf=false
+    let firstName = ""; 
+    let nNames = "";    
 
-    if (nf) { // nf is from #nf= URL parameter
-      firstName = FNAME; // FNAME is from #name= URL parameter (e.g., "拼车-")
+    if (nf) { 
+      firstName = FNAME; 
     } else {
       nNames = FNAME;
     }
 
-    if (findKey?.[1]) { // If a region was matched
+    if (findKey?.[1]) { 
       const findKeyValue = findKey[1];
       let keyover = [];
       let usflag = "";
-      if (addflag) { // from #flag= URL parameter
+      if (addflag) { 
         const index = outList.indexOf(findKeyValue);
         if (index !== -1) {
           usflag = FG[index]; 
@@ -288,32 +290,30 @@ function operator(pro) { // 'pro' is the array of proxies
         }
       }
       
-      // Assembling the new name. firstName (which is FNAME if nf=true) is added here.
       keyover = keyover
         .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey_bl, ikeys_blgd)
         .filter((k_item) => k_item !== "" && k_item !== undefined && k_item !== null); 
-      e.name = keyover.join(FGF); // FGF is from #fgf= URL parameter
-    } else { // If no region was matched
-      if (nm) { // from #nm= URL parameter
-        // Apply prefix even if no region match
+      e.name = keyover.join(FGF); 
+    } else { 
+      if (nm) { 
         if (nf) {
              e.name = firstName + FGF + e.name;
         } else {
              e.name = nNames + FGF + e.name;
         }
       } else {
-        e.name = null; // Discard node if no match and nm is false
+        e.name = null; 
       }
     }
   });
-  pro = pro.filter((e) => e.name !== null); // Remove discarded nodes
+  pro = pro.filter((e) => e.name !== null); 
   
-  jxh(pro); // Add sequence numbers (e.g., "01", "02")
-  numone && oneP(pro); // Optionally remove "01" if only one node in group
-  blpx && (pro = fampx(pro)); // Optional sorting
-  key && (pro = pro.filter((e) => !keyb.test(e.name))); // Optional filtering
+  jxh(pro); 
+  numone && oneP(pro); 
+  blpx && (pro = fampx(pro)); 
+  key && (pro = pro.filter((e) => !keyb.test(e.name))); 
 
-  return pro; // Return the modified array of proxies
+  return pro; 
 }
 
 // prettier-ignore
