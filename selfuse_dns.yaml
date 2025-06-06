@@ -861,6 +861,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  MybanList:
+    url: https://raw.githubusercontent.com/nico0766/Clahde_lee/refs/heads/main/MybanList.list
+    path: ./ruleset/MybanList.list
+    behavior: domain
+    interval: 86400
+    format: text
+    type: http
   ChinaCompanyIp:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
@@ -943,9 +950,11 @@ rules:
   - "RULE-SET,LocalAreaNetwork,全球直连"
   - "RULE-SET,MyChinaDomain,全球直连"
   - "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT"
-  - "DOMAIN-SUFFIX,ic.adobe.io,DIRECT"
-  - "DOMAIN-REGEX,\\w{10}.adobe.io,DIRECT"
-  - "DOMAIN-REGEX,\\w{10}.adobestats.io,DIRECT"
+  - "RULE-SET,MybanList,REJECT-DROP"
+  - "RULE-SET,MybanList,广告拦截"
+  - "DOMAIN-SUFFIX,ic.adobe.io,广告拦截"
+  - "DOMAIN-REGEX,\\w{10}.adobe.io,广告拦截"
+  - "DOMAIN-REGEX,\\w{10}.adobestats.io,广告拦截"
   - "RULE-SET,Custom_Direc_Rules,全球直连"
   - "RULE-SET,Custom_OpenClash_Rules,节点选择"
   - "RULE-SET,UnBan,全球直连"
