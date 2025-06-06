@@ -9,7 +9,6 @@ DOMAIN-SUFFIX,amazon.co.uk
 DOMAIN-SUFFIX,amazon.de
 DOMAIN-SUFFIX,amazon.ca
 DOMAIN-SUFFIX,amazon.com.au
-DOMAIN-SUFFIX,amazon.co.jp
 DOMAIN-SUFFIX,amazon.fr
 DOMAIN-SUFFIX,amazon.it
 DOMAIN-SUFFIX,amazon.es
@@ -31,4 +30,8 @@ DOMAIN-SUFFIX,amazonaws.com
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-KEYWORD,sellercentral.amazon
 DOMAIN-KEYWORD,advertising.amazon
-DOMAIN,amsproxy.amazon.com
+DOMAIN-SUFFIX,amsproxy.amazon.com
+DOMAIN-SUFFIX,mastergo.com
+DOMAIN-SUFFIX,amazon-adsystem.com
+DOMAIN-SUFFIX,
+DOMAIN-SUFFIX,
