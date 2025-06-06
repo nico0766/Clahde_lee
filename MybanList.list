@@ -1,0 +1,6 @@
+# 直连列表
+
+# MyList
+DOMAIN-SUFFIX,ic.adobe.io
+DOMAIN-REGEX,\\w{10}.adobe.io
+DOMAIN-REGEX,\\w{10}.adobestats.io
