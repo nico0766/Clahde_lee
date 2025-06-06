@@ -857,14 +857,14 @@ rule-providers:
   MyChinaDomain:
     url: https://raw.githubusercontent.com/nico0766/Clahde_lee/refs/heads/main/MyChinaDomain.list
     path: ./ruleset/MyChinaDomain.list
-    behavior: domain
+    behavior: classical
     interval: 86400
     format: text
     type: http
   MybanList:
     url: https://raw.githubusercontent.com/nico0766/Clahde_lee/refs/heads/main/MybanList.list
     path: ./ruleset/MybanList.list
-    behavior: domain
+    behavior: classical
     interval: 86400
     format: text
     type: http
