@@ -550,8 +550,6 @@ proxy-groups:
     type: load-balance
     interval: 300
     strategy: round-robin
-    hidden: false
-    strategy: round-robin
     hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 香港节点
