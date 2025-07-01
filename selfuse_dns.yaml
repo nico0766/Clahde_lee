@@ -551,7 +551,6 @@ proxy-groups:
     interval: 300
     strategy: round-robin
     hidden: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 香港节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
@@ -562,7 +561,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 日本节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
@@ -572,7 +570,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 美国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
@@ -582,7 +579,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 台湾节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
@@ -592,7 +588,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 狮城节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
@@ -602,7 +597,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 韩国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
@@ -612,7 +606,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 加拿大节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Canada.png
@@ -622,7 +615,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 英国节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
@@ -632,7 +624,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 澳洲节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Australia.png
@@ -642,7 +633,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 欧盟节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
@@ -652,7 +642,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 非洲节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
@@ -662,7 +651,6 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
-    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 省流节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png
