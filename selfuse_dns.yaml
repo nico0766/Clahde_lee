@@ -642,6 +642,7 @@ proxy-groups:
     interval: 300
     tolerance: 20
     lazy: false
+    hidden: true
     url: 'http://cp.cloudflare.com/generate_204'
   - name: 非洲节点
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png
